@@ -34,6 +34,9 @@ for (let i = 0; i < breeds.length; i++){
 
     option.value = breeds.id;
     option.textContent = breeds.name;
+
+loadBreed();
+
 }
 catch (error){
     console.log(error)
@@ -65,6 +68,12 @@ async function loadBreed(){
             `https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}&limit=5` )
         }
         
+
+        for(let i = 0; i < CacheStorage.length; i++){
+            
+        }
+
+
     } catch (error){
         console.log(error)
     }
@@ -74,6 +83,10 @@ async function loadBreed(){
 
 
 
+
+
+
+const breedInfo = cats.breeds
 
 
 /**
