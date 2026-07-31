@@ -141,6 +141,7 @@ const breedInfo = cats.breeds
  * - You can call this function by clicking on the heart at the top right of any image.
  */
 export async function favourite(imgId) {
+    getFavouritesBtn.addEventListener("click", getFavourites);
     try{
         const response = await fetch ("https://api.thecatapi.com/v1/favoruites")
     }
@@ -148,9 +149,20 @@ export async function favourite(imgId) {
 }
 const data = await response.json();
 
+for (let i = 0; i < favourites.length; i++){
+    const carouselItem = Carousel.createCarouselItem(
+        favourites.image.id
+    );
+    Carousel.appendCarousel(carouselItem);
+
+}
+Carousel.start();
+
 catch (error){
     console.error(error)
 }
+
+
 /**
  * 9. Test your favourite() function by creating a getFavourites() function.
  * - Use Axios to get all of your favourites from the cat API.
